@@ -1,0 +1,2 @@
+defmodule Mailapi do
+end
