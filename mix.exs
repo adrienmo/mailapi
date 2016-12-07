@@ -14,19 +14,18 @@ defmodule Mailapi.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [
+      mod: {Mailapi, []},
+      applications: [:logger, :cowboy, :poison, :gen_smtp]
+    ]
   end
 
-  # Dependencies can be Hex packages:
-  #
-  #   {:mydep, "~> 0.3.0"}
-  #
-  # Or git/path repositories:
-  #
-  #   {:mydep, git: "https://github.com/elixir-lang/mydep.git", tag: "0.1.0"}
-  #
-  # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:cowboy, "~> 1.0"},
+      {:gen_smtp, "~> 0.11.0"},
+      {:poison, "~> 3.0"},
+      {:distillery, "~> 1.0"}
+    ]
   end
 end
